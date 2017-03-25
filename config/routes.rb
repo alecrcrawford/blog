@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :articles, :pages
+  get 'admin/index'
+
+  resources :articles, :pages, :admin
 
   devise_for :users
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'accessibility', to: 'pages#accessibility'
 
-  
+
 
 
 
