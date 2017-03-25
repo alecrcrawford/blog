@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :articles, :pages
-  
+
   devise_for :users
 
   root 'pages#home'
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   get 'accessibility', to: 'pages#accessibility'
+
+  
 
 
 

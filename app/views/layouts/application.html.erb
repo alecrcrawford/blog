@@ -30,12 +30,35 @@
         <li><%= link_to 'contact', contact_path %></li>
         <li><%= link_to 'accessibility', accessibility_path %></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><a href="#"><%= current_user.email %></a></li>
+          <li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <body>
   <div class="container-fluid">
+    <div class="page-header">
+      <h1><%= yield(:title) %></h1>
+
+    </div>
+    <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= notice %>
+    </div>
+
+    <% else %>
+    <% end %>
     <%= yield %>
 
   </div>

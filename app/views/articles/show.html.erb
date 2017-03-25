@@ -1,11 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<div class="page-header">
-  <h1><%= @article.title %></h1>
-
-</div>
-
-  <%= simple_format @article.body %>
+<% title @article.title %>
+<%= simple_format @article.body %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
