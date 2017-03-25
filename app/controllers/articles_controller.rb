@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action do |controller|
+    unless current_user.admin?
+      redirect_to '/'                           #this should be written differently
+    end
+  end
 
   # GET /articles
   # GET /articles.json
